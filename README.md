@@ -166,5 +166,192 @@ Java 8
 
                 Miscllinous Operators
 
+                    ;           line terminator
+                    ( )         used to declare a function and its arguments
+                    ,           used to seperate function arguments and multiple variable declaration
+                    [ ]         used to access elements of an array, array index operator
+                    { }         used to define block of statements
+                    .           period, memeber access operator
+                    new         used to allocate objects.
+                    instanceof  used to check if an object is of a particular class type or not.
+
             Comments
+
+                    //end-of-line-comment
+
+                    /*
+                    Block comment
+                    */
+
             Literals            
+
+                    is any hard-coded value.
+
+                    final double PI = 3.14; 
+
+                    final   is a keyword
+                    double  is a keyword
+                    PI      is a identifier (name of a constant)
+                    =       is an operator
+                    3.14    is a literal
+                    ;       is an operator
+
+
+                    double c = 2 * PI * r;
+
+                    keywords    double
+                    operators   =   *   ;
+                    identifier  c   PI  r
+                    literals    2
+
+                    Types of literals supported in Java
+
+                        Integer         0,1,2,3,4,5,6,7,8,9
+
+                                        int a = 45;     //int is a keyword, a is a identifier,
+                                                        // = and ; are a operator
+                                                        // 45 is a integer literal
+                                        int b = -45;    //int is a keyword, b is a identifier,
+                                                        // = - an ; are a operator
+                                                        // 45 is a integer literal
+
+                                        int a = 456789;
+
+                                        int x = 4_56_789;
+
+                        Octal Integer               should start with a zero
+                                                    01,02,03,04,05,06,07
+                                                    012
+
+                        HexaDecimal Integer         should start with 0x
+                                                    0x1,0x2,0x3,0x4,0x5,0x6,0x7,0x8,0x9,0xA,0xB,0xC,0xD,0xE,0xF
+                                                    0xAA1
+
+                        Float           3.14    6.78
+                        String          "Hello "    "Vamsy Kiran"
+                        Character       'a' '$' '8'
+                        Boolean         true    false
+                        Reference       null
+
+
+        6. Data Types and their keywords
+
+            Primitive Data Types
+
+                byte
+                short
+                int
+                long
+
+                double
+                float
+
+                char
+                boolean
+                void
+
+            User Defined Data Types
+
+                enum
+                class
+                interface
+                annotation
+
+        7. Control Structures
+
+            is used to change the flow of execuion of a program.
+
+            Decision Making / Branching Control Strucutres
+
+                Simple If
+
+                    if(cond) {
+                        //block of statements to execute if the cond is true
+                    }
+
+                If..else
+
+                    if(cond) {
+                        //block of statements to execute if the cond is true
+                    } else {
+                        //block of statements to execute if the cond is false
+                    }
+
+                If Ladder
+
+                    if(cond1) {
+                        //block of statements to execute if the cond1 is true
+                    } else if(cond2) {
+                        //block of statements to execute if the cond2 is true and the prev cond(s) are false
+                    } else if(cond3) {
+                        //block of statements to execute if the cond3 is true and the prev cond(s) are false
+                    } else {
+                        //block of statements to execute if all the above  conds are false
+                    }
+
+                Nested If
+
+                    if(cond){
+                        if(cond2){
+                            .....
+                        }
+                    }
+
+                Switch
+
+                    switch(var){
+                        case val1: 
+                            //block-1 statements
+                            break;
+                        case val2: 
+                            //block-2 statements
+                            break;
+                        case val3: 
+                            //block-3 statements
+                            break;
+                        default:
+                            //statements to execute if non of the values match the variable.
+                    }
+
+                    switch statment works with int,char and Strings
+
+            Loops / Iterative Control Structures
+
+                While Loop  -   indefinite pre-condition check loop
+
+                    while(cond){
+                        //block of statements.
+                        //these statements will repeatedly exeucted as long as the cond is true
+                    }
+
+                For Loop    -   finite pre-condition check loop
+
+                    for(initialize;cond;inc/dec) {
+                        //block of statements.
+                        //these statements will repeatedly exeucted as long as the cond is true
+                    }
+
+
+                    Cone cones[] = new Cone[10];
+
+                    for(i=0;i<cones.length;i++){
+                        fill(cones[i]);
+
+                        while(cones[i].isNotEmpty()){
+                            lickAndSwallow(cones[i]);
+                        }
+                    }
+
+                For Each Loop / Enhanced For Loop
+
+                    for(loopingVar : collectionOrArray) {
+                        //block of statements
+                    }
+
+            Non-Conditional Control Structures
+
+                return
+                break
+                continue
+
+    
