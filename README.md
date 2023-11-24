@@ -354,4 +354,71 @@ Java 8
                 break
                 continue
 
-    
+            assignmnet#1:
+
+                accept the electric meter detials like:
+                    meter type: ('domestic"/"commercial"/"Industrial")
+                    prev month meter reading
+                    current month meter reading
+
+                1. compute and display the units consumed
+                2. compute the rate per as per the below table
+                    if commercial for units ranging
+                                                        above 1000  , rate is  4.0 per unit
+                                                        500 to 999  , rate is  3.0 per unit
+                                                        200 to 499  , rate is  2.0 per unit
+                                                        less than 200  , rate is  1.0 per unit
+                    if domestic for units ranging
+                                                        above 1000  , rate is  2.0 per unit
+                                                        500 to 999  , rate is  1.0 per unit
+                                                        200 to 499  , rate is  0.50 per unit
+                                                        less than 200  , rate is  0.25 per unit
+                    if Industrial for units ranging
+                                                        above 5000  , rate is  40.0 per unit
+                                                        2500 to 4999  , rate is  35.0 per unit
+                                                        1500 to 2499  , rate is  25.0 per unit
+                                                        less than 1500  , rate is  15.0 per unit            
+                3. compute the payable bill.
+
+        8. Arrays
+
+            a. an array is a linear collection of homoginous elements.
+            b. each element in an array is refered to by its position called index.
+            c. in java index starts from 0.
+            d. java arrays are fixed in size and dynamic.
+            e. java supports multi-dimensional and jagged arrays.
+            f. .length property of an arrays gives the size of the first dimension of an array.
+
+            datatype arrayName[];
+            datatype arrayName[][];
+            datatype arrayName[][][];
+
+            int nums[];
+            nums = new int[5];
+            nums[3] = 19;
+
+                        0           1       2      3         4   
+                        ( 0 )     ( 0 )    ( 0 )   ( 19 )    ( 0 )
+
+            int size = scan.nextInt();
+            int myArray[] = new int[size];
+
+            int arr1[] = new int[] {10,20,30,40,50};
+
+            int arr2[][] = new int[3][5];
+            arr2[1][2] = 7;
+
+                        0           1       2      3       4   
+                    0   ( 0 )     ( 0 )    ( 0 )   ( 0 )    ( 0 )
+                    1   ( 0 )     ( 0 )    ( 7 )   ( 0 )    ( 0 )
+                    2   ( 0 )     ( 0 )    ( 0 )   ( 0 )    ( 0 )
+
+            int arr3[][] = new int[3][];
+            arr3[0] = new int[3];
+            arr3[1] = new int[2];
+            arr3[2] = new int[4];
+
+                          0         1       2      3          
+                    0   ( 0 )     ( 0 )    ( 0 )   
+                    1   ( 0 )     ( 0 )    
+                    2   ( 0 )     ( 0 )    ( 0 )   ( 0 )  
