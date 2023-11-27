@@ -422,3 +422,87 @@ Java 8
                     0   ( 0 )     ( 0 )    ( 0 )   
                     1   ( 0 )     ( 0 )    
                     2   ( 0 )     ( 0 )    ( 0 )   ( 0 )  
+
+    Object Oriented Programming Conepts
+    -------------------------------------------------------------------
+
+        Class & Object
+
+            a Class is a user defiend datatype.
+            a Class has fields and methods, where fields are variable used to represent properties
+            and methods are functions used to represent behaviours.
+
+            class Pen {
+                Barrel barrel;
+                Refile refile;
+                Nib nib;
+
+                void write(String text,Paper paper){
+                    //implementation goes here....
+                }
+            }
+
+            Object are variable of class type. in other words objects are instances of a class.
+
+            Pen p1 = new Pen();
+
+            Pen p2;
+            p2 = new Pen();
+
+        Encapsulation
+
+            is also known as data hididng, and the process of encapsulating the fields and
+            method in a class increases the data integritiy.
+
+            data hiding referes to protecting th core-fields of the class and providng an
+            indirect access.
+
+            In java, we use access specifiers to encapsulate the firles and methods.
+
+                Default     -no keyword-    a default field or method can be accessed
+                                            witihin the host class
+                                            or whithin any other class belonging to the same package
+
+                Private     private         a private field or method can be accessec
+                                            only within the host class
+
+                Public      public          a public field or method can be accessed anywhere.
+
+                Protected   protected       a protected field or method can be accessed 
+                                            within the host class
+                                            and within any class that inherits from the host class.
+
+            the general standard in java is, all fields are made private and for reading or writing
+            into those fields getter and setter public methods are defined and used.
+
+                class BankAccount {
+
+                    private long accountNumber;
+                    private String ifscCode;
+
+                    public long getAccountNumber(){
+                        return this.accountNumber;
+                    }
+
+                    public String getIfscCode(){
+                        return this.ifscCode;
+                    }
+
+                    public void setAccountNumber(long accountNumber){
+                        this.accountNumber=accountNumber;
+                    }
+
+                    public void setIfscCode(String ifscCode){
+                        this.ifscCode=ifscCode;
+                    }
+                }
+
+                BankAccount ba1 = new BankAccount();
+                BankAccount ba2 = new BankAccount();
+
+                ba1.setIfscCode("ICIC000019");
+                ba2.setIfscCode("INDB000012");
+
+        Polymorphisim
+        Inheretence
+        Abstraction
