@@ -503,6 +503,110 @@ Java 8
                 ba1.setIfscCode("ICIC000019");
                 ba2.setIfscCode("INDB000012");
 
+                All about Java Classes
+                    constructor
+                        Constructor is a special method of class that gets invoked as and when an object is allocated.
+                        Construcors must have the same anme as that of the hsot class and they do not return anything (even not void)
+
+                        A class can have more than one constructor, but they have to have different
+                        parameters.
+
+                            Default Constructor         constructor having no-args.
+                            Parametrized Constructors   constructor having atleast one argument.
+                            Copy Constructor            constructor having the object of the host class as an arg.
+
+                    the 'this' keywrd
+
+                        'this' is a reference to the current object of a method.
+                        'this' keyword can also be used to call a construcotr from another constructor.
+
+                    Methods from java.lang.Object class
+
+                        this Object class is the default super class for all java classes.
+
+                        int hashcode()
+                        boolean equals(Object)          obj1.equals(obj2)   ------> true/false
+                        String toString()
+
+                    the 'static' keyword
+
+                        static on fields
+
+                            static fields are called class-variables and
+                            non static fields are called instance-variables
+
+                            instance variable are allocated one copy for each object of the class
+                            where as a class variable is allocated only one copy for all the objects of the class.
+
+                            a public static field can be accessed through class name directly.
+
+                        static on methods
+
+                            a static method if public can be accessed through class name directly and
+                            a static method can access only other static resources of the class directly.
+                            in other words a static method can not access 'this' keyword.
+
+                            ClassName obj = new ClassName();
+                            obj.method1();  //'this' keyword refers to obj1.
+                            className.staticMethod(); //'this' keyword has no reference
+
+                        static on classes
+
+                            a class can contain another class.
+
+                            If a class inside a class is not static, it is called InnerClass
+                            if a class inside a class is static, it is called NestedClass
+
+                            class MyClass {
+                                class InnerClass {
+
+                                }
+
+                                static class NestedClass{
+
+                                }
+                            }
+
+                            InnerClass vs NestedClass ??
+
+                        static blocks
+
+                            class MyClass {
+                                static {
+                                    //static block
+                                    //a class cna have any number of static blocks, but all of them
+                                    // are treated as one single block together.
+                                    //these blocks will be executed before the class is accessed for the first time.
+
+                                    //thee blocks are used to execute critical memeory operations.
+                                }
+                            }
+
         Polymorphisim
         Inheretence
         Abstraction
+
+
+        Package
+
+            in java is a group of classes.
+            Each class is one unit of an application.
+            Each class has one specific purpose like modeling/computaion/presentation ..etc.,
+            Classes that has a common purpose are grouped into one group and such group is
+            called a package.
+
+            www.congnizant.com
+            www.cts.com
+
+                com.cts         organization level package.
+
+                ecommerce
+                            com.cts.ecomerce
+                            com.cts.ecomerce.model
+                            com.cts.ecomerce.ui
+
+                hospital
+                            com.cts.hospital
+                            com.cts.hospital.model
+                            com.cts.hospital.ui
+                            
