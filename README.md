@@ -671,8 +671,7 @@ Java 8
                     2. differ in no.of.args or differ in args data types
                 then they are said to be overlaoded.
 
-                class HuamnBeing {
-                    
+                class HuamnBeing {    
                     void eat(Apple apple){
                         wash(apple);
                         ApplePiece pieces[] = cut(apple);
@@ -712,6 +711,31 @@ Java 8
                         }
                     }
                 }
+
+            'super' keyword is used to call the super class constructor from a sub-class constructor.
+            'super' keyword is also used to call a method of super class from its overriden mehtod of sub-class.
+
+            'final' keyword
+                1. can be used on any variable, and that variables becomes a constant
+                2. can be used on a method, and that method can not be overriden.
+                3. can be used on a class, and that class can not be derived from.
+
+            Note:
+                in Java, constant are genrally made public static and final.
+
+                class Circle{
+
+                    public static final double PI = 3.14;
+
+                    private double radius;
+
+                    //...other methods
+                }
+
+                final keyword makes PI a constant.
+                static keyword makes PI allocated only once in the memory for all Circle objects commonly.
+                public because, there's is no point in making it private, as it can however can not be modified.
+
 
         Abstraction
 
