@@ -582,8 +582,137 @@ Java 8
                                 }
                             }
 
-        Polymorphisim
         Inheretence
+
+            is the process of creating a new UserDefinedDataType from an existing 
+            UserDefinedDataType. The newly created type is called SubType and the 
+            existing type is called SuperType.
+
+                'extends' is used to derive a class from another class
+                'extends' is used to derive an interface from another interface.
+                'implements' is used to create a class from an interface.
+
+                class Pen{
+                    Barrel barrel;
+                    Refill refill;
+                    Nib nib;
+
+                    void write(String text, Paper paper){
+
+                    }
+                }
+
+                class Marker extends Pen {
+                    void write(String text,WhiteBoard whiteBoard){
+
+                    }
+                }
+
+            Types Of Inhertence
+                Simple              Super <--derives from-- Sub
+
+                Hirarchial                                 |- Sub1 
+                                    Super <--derives from--|
+                                                           |- Sub2 
+                
+                Multi-Level         Super <--derives from-- Sub1 <--derives from-- Sub2 <--derives from-- Sub3
+
+                Multiple            Super1 <--derives from--|
+                                                            | - Sub
+                                    Super2 <--derives from--|
+
+                Hybrid              is a combination any of two of the above
+
+                In Java, classes do not support multiple inheretecne and neither interface.
+                But multiple inheentec is possible between interface and classes. That means
+                a class can implement multiple interfaces.
+
+            When an object is allocated to a class, its constructor is invoked, and when 
+            an object to a sub-class is allocated, its super-class constructor followed by 
+            the sub-class constructor are invoked in that order.
+
+            Type Casting
+
+                a super class reference can hold a sub-class object.
+
+                                    Employee empId,fullName,basic
+                                        ↑
+                                        |
+                    ---------------------------------------------
+                    ↑                                           ↑
+                    |                                           |
+                ContractEmployee contractDuration               Manager  allowence
+                                                                    ↑
+                                                                    |
+                                                                Director share
+
+                    Employee e1 = new Employee();
+                    Director d1 = new Director();
+
+                    Employee e2 = new ContractEmployee();
+                    Employee e3 = new Manager();
+                    Employee e4 = new Director();
+                    Manager m1 = new Director();
+
+                    Manager mObj1 = (Manager) e3;
+                    Manager mObj2 = (Manager) e4;
+
+                    Manager mObj = (Manager) e2;    //not possible and gives ClassCastException
+                    Director dObj = (Director) e3;    //not possible and gives ClassCastException
+
+        Polymorphisim        
+
+            is defining two or more methods with the same name.
+
+            Overloading
+                if two or more methods of the same class or
+                Methods from a super and sub class
+                    1. have the smae name
+                    2. differ in no.of.args or differ in args data types
+                then they are said to be overlaoded.
+
+                class HuamnBeing {
+                    
+                    void eat(Apple apple){
+                        wash(apple);
+                        ApplePiece pieces[] = cut(apple);
+                        for(ApplePiece p : pieces){
+                            chewAndSwallow(p);
+                        }
+                    }
+
+                    void eat(IceCream iceCream){
+                        while(iceCream.isNotEmpty()){
+                            lickAndSwallow(iceCream);
+                        }
+                    }
+                }
+
+            Overriding
+                Methods from a super and sub class
+                    1. have the same name
+                    2. have the same args.
+                    3. have the return type.
+                then they are said to be overridden.
+
+                class Animal {
+                    void eat(Apple apple){
+                        while(apple.exists()){
+                            byteAndChewAndSwallow(apple);
+                        }
+                    }
+                }
+                
+                class HumanBeing extends Animal {   
+                    void eat(Apple apple){
+                        wash(apple);
+                        ApplePiece pieces[] = cut(apple);
+                        for(ApplePiece p : pieces){
+                            chewAndSwallow(p);
+                        }
+                    }
+                }
+
         Abstraction
 
 
