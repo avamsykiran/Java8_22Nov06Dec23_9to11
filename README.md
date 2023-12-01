@@ -817,27 +817,100 @@ Java 8
                     
                 }
 
-        Package
+    Package
 
-            in java is a group of classes.
-            Each class is one unit of an application.
-            Each class has one specific purpose like modeling/computaion/presentation ..etc.,
-            Classes that has a common purpose are grouped into one group and such group is
-            called a package.
+        in java is a group of classes.
+        Each class is one unit of an application.
+        Each class has one specific purpose like modeling/computaion/presentation ..etc.,
+        Classes that has a common purpose are grouped into one group and such group is
+        called a package.
 
-            www.congnizant.com
-            www.cts.com
+        www.congnizant.com
+        www.cts.com
 
-                com.cts         organization level package.
+            com.cts         organization level package.
 
-                ecommerce
-                            com.cts.ecomerce
-                            com.cts.ecomerce.model
-                            com.cts.ecomerce.ui
+            ecommerce
+                        com.cts.ecomerce
+                        com.cts.ecomerce.model
+                        com.cts.ecomerce.ui
 
-                hospital
-                            com.cts.hospital
-                            com.cts.hospital.model
-                            com.cts.hospital.ui
+            hospital
+                        com.cts.hospital
+                        com.cts.hospital.model
+                        com.cts.hospital.ui
                             
-        
+    Java Libraries (in-built java packages)
+    ----------------------------------------------------------------------------------------------        
+
+        java.lang                   core computing capabilities, Exception Handling , Mutlti-Thread
+        java.time                   date and time computation
+        java.io,java.nio            Input Output Streams 
+        java.util                   Utility classes, Generics, Collection and StreamsAPI
+        java.sql                    Java Data Base Connectivity
+
+    java.lang - core computing capabilities
+    ----------------------------------------------------
+
+        java.lang is said to be an implict pakcage, as it need not be imported and all its
+        classes can accessed without improting the pakcage.
+
+        Object
+                is the defualt super class for a java class.
+
+                int hashcode();
+                boolean equals(Object);
+                String toString();
+
+        System
+
+                public static InputStream in
+                public static PrintStream err
+                public static PrintStream out
+
+                public static void exit(int);       //used to terminate the app abruptly.
+                public static void gc();            //to request garbbage collection
+
+        Math
+
+        String
+                is a built-in class (UDT) to represents a sequence of characters.
+
+                String s1 = "Hello ";
+
+                The above is possible beacuse String literals are treated as String objects.
+
+                In Java, Strings are all maintained ina speical memory box called String-Pool.
+                And a String is never re-allocated in java.
+
+                String s1 = "Hello ";
+                String s2 = "hello ";
+                String s3 = "Hello ";
+
+                s1 and s3 refer to the same memory location , and s2 is different.
+
+                In java, Strings are not mutable (they are immutable).
+
+                String s1 = "Hello ";                
+                s1 = s1 + " World";
+
+                The s1 is not modified here, but s1 is redirected to a new memory location having "Hello World"
+                as value. Each tiem we modify a string a new string is allocated and hence string manipulation
+                in java is very costly and is not recommended at all.
+
+        StringBuffer and StringBuilder
+
+                are classes designed to support string modifications with lesser cost. The
+                StringBuffer and StringBuilder are used to modify strings without creating new string objects.
+
+        Wrapper Classes
+            Short
+            Integer
+            Long
+            Double
+            Float
+            Character
+            Boolean
+
+    
+
