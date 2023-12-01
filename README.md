@@ -739,6 +739,83 @@ Java 8
 
         Abstraction
 
+            is to declare a method and implement later on. such methods are called abstract methods.
+
+                abstract class
+
+                        an abstract class can not have an object allocated.
+                        only an abstract class can accomidate an abstract method; it means an absctract class can have fields, methods and abstract methods. 
+                        
+                        The abstract classes are expected to be inhereted and 
+                        the sub-class of the abstract class must implement the abstract methods and if not
+                        the sub-class as well must be abstract.
+
+                        abstract class Person
+                            id,firstName,lastName,gender,dateOfBirth,address
+                        ↑
+                        ------------------------------------------
+                        ↑               ↑           ↑           ↑
+                        Principal       Teacher     Student     Parent
+
+                        abstract class Shape {
+
+                            private int[] sides;
+                            private int[] angles;
+
+                            //construcotrs,getters,setter,toString .....
+
+                            public int perimeter(){
+                                int p =0;
+                                for(int s : this.sides){
+                                    p+=s;
+                                }
+                                return s;
+                            }
+
+                            public abstract int area();
+                        }
+
+                interface
+                    an interface is a user defined data type that can hold
+                    final fields, default methods, static methods and abstract methods.
+
+                    by default methods in an interface are public and abstract.
+
+                    interface cna not have fields.
+
+                In Java Geenrally , classes repreet domain-models and interfce represent roles.
+
+
+                abstract class Animal                            abstract class Bird                            ↑                                                  ↑
+                ---------------------------                     ------------------------
+                    ↑                       ↑                       ↑                      ↑
+                class FemaleAnimal         class MaleAnimal       class FemaleBird        class MaleBird
+
+                interface Mother
+                    giveBirth()
+                    feed()
+                interface Sister
+
+                interface Brother
+                interface Father
+                    earnFood()
+                    protect()
+
+                class FemalAnimal extends Animal implements Mother,Sister{
+
+                }
+
+                class MaleAnimal extends Animal implements Father,Brother {
+                    
+                }
+                
+                class FemalBird extends Bird implements Mother,Sister{
+
+                }
+
+                class MaleBird extends Bird implements Father,Brother {
+                    
+                }
 
         Package
 
@@ -763,3 +840,4 @@ Java 8
                             com.cts.hospital.model
                             com.cts.hospital.ui
                             
+        
