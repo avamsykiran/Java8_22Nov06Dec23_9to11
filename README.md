@@ -912,5 +912,83 @@ Java 8
             Character
             Boolean
 
-    
+    Date Time API
+    ---------------------------------------------------------------------------------
+        java.time 
 
+            LocalDate           .now()
+                                .of(year,Month,day)
+            
+            LocalDateTime       .now()
+                                .of(year,Month,day,hour,minute,seconds)
+            
+            ZonedDateTime       .now(ZoneId)
+
+                instance methods
+                    getYear(),getMonth(),geDay(),
+                    getHour(),getMinutes(),getSeconds(),
+                    plusYears(years),plusDays(days) ...etc.,
+                    minuYears(years),minusMonths(months)...etc.,
+                    equals , isBefore , isAfter
+
+            Period              .between(startDate,endDate)
+            Duration            .between(startDateTime,endDateTime)
+            DateTimeFormatter   .ofPattern("format")
+                                ::format(dateTime)
+                                ::parse(String)
+
+    Exception Handling
+    ---------------------------------------------------------------------------------
+
+        Any undesirable operation that causes the application to terminate abruptly is
+        treated as an exception.
+    
+        java.lang.Throwable (interface)
+                    ↑
+                    |← java.lang.Exception
+                                    ↑
+                                    |← Derive other exceptions (CHECKED EXCEPTIONS)
+                                    |
+                                    |← java.lang.RuntimeException
+                                                    ↑
+                                                    |← Derive other exceptions (UN_CHECKED EXCEPTIONS)
+
+        UN_CHECKED EXCEPTIONS are not checked by the compiler and we have to avoid these exceptions using defensive logic.
+
+        CHECKED EXCEPTIONS are checked by the compiler and can not be avoided. They must be handled using a try..catch statement.
+
+            try{
+                //statements that may raise a checked exception
+            }catch(ExceptionType1 exceptionObj){
+                //alternate exception handling statements.
+            }catch(ExceptionType2 exceptionObj){
+                //alternate exception handling statements.
+            }....finally{
+                //is executed at any situation irrespective of an excpeition occurs or not.
+                //is used to close Connections / Streams / Files opend in the try block.
+            }
+
+            //try-with-resource--
+            try ( declare closable objects like connections / streams / files ..etc ) {
+                //statements that may raise a checked exception
+            }catch(ExceptionType1 exceptionObj){
+                //alternate exception handling statements.
+            }catch(ExceptionType2 exceptionObj){
+                //alternate exception handling statements.
+            }catch(ExceptionType3 exceptionObj){
+                //alternate exception handling statements.
+            }
+
+            // try-with-multiCatch
+            try ( declare closable objects like connections / streams / files ..etc ) {
+                //statements that may raise a checked exception
+            }catch(ExceptionType1 | ExceptionType2 | ExceptionType3 exceptionObj){
+                //alternate exception handling statements.
+            }
+
+        User Defined Exception
+            To create a CheckedException, we have to write a class and derive it from Exception.
+            To create a UnCheckedException, we have to write a class and derive it from RuntimeException.
+
+            To raise a User Defiend Exeption 'throw' keyword is sued.
+            To trnasfer an exception from a function to another 'throws' keyword is used.
