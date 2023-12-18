@@ -992,3 +992,208 @@ Java 8
 
             To raise a User Defiend Exeption 'throw' keyword is sued.
             To trnasfer an exception from a function to another 'throws' keyword is used.
+
+    Generics
+    ---------------------------------------------------------------------------------
+
+        Generics are used to create ADTs . (Abstract Data Type).
+
+        Swapping Logic
+            temp = a;
+            a = b;
+            b = temp;
+
+        public class Swapper<T> {
+            public void swap(T a,T b){
+                System.out.println("Before Swap: "+a+"\t"+b);
+                T temp = a;
+                a = b;
+                b = temp;    
+                System.out.println("After Swap: "+a+"\t"+b);
+            }
+        }
+
+        public class GenericsDemoApp {
+            public static void main(String a[]){
+
+                Swapper<String> s1 = new Swapper<>();
+                s1.swap("Hello ","Hai ");
+
+                Swapper<Integer> s2 = new Swapper<>();
+                s2.swap(100,200);
+                       
+            }
+        }
+
+    Collections
+    -------------------------------------------------------------------------------------
+
+        Data Structures are implemented in java as Collections.
+
+        java.util.
+                Collection (interface)      int size()
+                                            void add(element)
+                                            void remove(element)
+                                            boolean contains(element)
+                                            boolean isEmpty()
+                                            Stream stream()
+                    ↑
+                    |← Set (interface)      Represents Non-Linear Data Structure
+                    |                       No Duplicates Allowed, Only one null can be added
+                    |                       Doesn't support index, Random Access is not possible
+                    |       ↑
+                    |       |← HashSet (class)          the order of retrival is not predictable
+                    |       |← LinkedHashSet (class)    the elements are retrivied in insertion order
+                    |       |← TreeSet (class)          the elements are retrived in sorted order
+                    |       
+                    |← List (interface)     Represents Linear Data Structure
+                    |                       Duplicates are Allowed, any number of nulls can be added
+                    |                       Supports index, Random access is supported
+                    |                          void add(index,element)
+                    |                          element get(index)
+                    |                          void removeAt(index)
+                    |                          int indexOf(element)
+                    |       ↑
+                    |       |← Vector (class)       growable array and is synchronized
+                    |       |← ArrayList (class)    growable array and is not synchronized
+                    |       |← LinkedList (class)   doubly linked list
+                
+
+                Map (interface)      Represents a collection of Key-Value pairs
+                                     No Duplicate keys Allowed
+                                        void put(key,value)
+                                        void set(key,value)
+                                        Set<key> keySet()
+                                        Set<value> values()
+                                        boolean contiansKey(key)
+                                        int size()
+                                        boolean isEmpty()
+                    ↑
+                    |← HashMap (class)          the order of retrival is not predictable
+                    |← LinkedHashMap (class)    the elements are retrivied in insertion order
+                    |← TreeMap (class)          the elements are retrived in sorted order on KEYS
+
+                Collections         has utility functions for lists,sets and maps
+                Arrays              has utility functions for arrays
+
+        java.lang.Comparable
+                int compareTo(element)
+
+                    ele1.compareTo(ele2)
+                     this method is expected to return
+                        -ve value if ele1 < ele2
+                        0 if both elements are equal
+                        +ve if ele1 > ele2
+
+                this interface is used given default comparasion machanisim 
+                and is expected to be implemented by the model class itself.
+
+        java.util.Comparator
+                int compare(ele1,ele2)
+                        comparatorObj.compare(ele1,ele2)
+                             this method is expected to return
+                                -ve value if ele1 < ele2
+                                0 if both elements are equal
+                                +ve if ele1 > ele2
+
+                this interface allows us to create custom comparisions.
+    
+    Functional Interfaces
+    -------------------------------------------------------------------------------------
+
+        if an interface has exactly one abstract method, then it is called a functional interface.
+
+        @FunctionalInterface
+        interface GreetService {
+            void doGreet(String userName);
+        }
+
+        if the abstract method of the functional interface ]
+            doesn't return any value but accepts a param        then it is called Consumer
+            doesn't accept a param but returns                 then it is called Supplier
+            always returns boolean                             then it is called Predicate
+            Otherwise                                           Functional 
+
+        java.util.function
+            Functional interfaces provide target types for lambda expressions and method references.
+
+    Lambda Expression
+    -------------------------------------------------------------------------------------
+        Lambda Expressions are used to implement and instantiate a functional interface.
+
+        GreetService gs1 = (userName) -> "Hello " + userName ;
+        System.out.println(gs1.doGreet("Vamsy")); //Hello Vamsy
+        
+        GreetService gs2 = (userName) -> {
+            LocalTime time = LocalTime.now();
+            String greeting = "";
+            
+            if(time.getHour()>=5 && time.getHour()<=11){
+                greeting = "Good Morning ";
+            } else if(time.getHour()>11 && time.getHour()<=17){
+                greeting = "Good Noon "; 
+            }else {
+                greeting = "Good Evening ";
+            }
+
+            return greeting + userName;
+        };
+        System.out.println(gs2.doGreet("Vamsy")); //Hello Vamsy
+
+
+    Functional Programming using Stream API
+    -------------------------------------------------------------------------------------
+
+        any individual operation is treated as a function.
+        
+        To exxecute a series of operations these functions are chained in such a way that
+            the ouput of a function will be the input for the next function
+   
+        execute(func1).execute(func2).execute(func3) ......
+
+        Stream means flow of data.
+
+        java.util.stream.Stream
+
+        Stream s1 = empsList.stream();
+        Stream s2 = empsSet.stream();
+        Stream s3 = Stream.of(val1,val2,val3,val3....)
+
+        Stream
+                forEach(Consumer)           execute the consumer on each elment of the stream
+                reduce(BinaryOperator)      
+
+                            Stream st = Stream.of(1,2,3,4,5);
+                            BinaryOperator sum = (a,b) -> a+b;
+                            st.reduce(sum); // sum(sum(sum(sum(1,2),3),4),5)
+
+                collect(Collector)
+                            Collectors.toList()
+                            Collectors.toSet()
+                            Collectors.toMap()
+
+                map(Operator)           the operator is executed on each element of the stream
+                                        and a new stream of results is returned.
+
+                            Stream st = Stream.of(1,2,3,4,5);
+                            Stream st2 = st.map( x -> x*x ); //st2 will have 1,4,9,16,25
+
+                filter(Predicate)       returns a new Stream that contains those elemnts of the 
+                                            source stream that get a true when executed on the predicate.
+
+                            Stream st = Stream.of(1,2,3,4,5);
+                            Stream st2 = st.filter( n -> n%2==0 ); //st2 will have 2,4
+
+                Stream.of(1,2,3,4,5)
+                        .filter( n -> n%2==0 )
+                        .map( x -> x*x )
+                        .forEach( a -> { System.out.println(a); } ); //display 4 and 16
+
+                map and filter are called intermidiate operations; forEach,collect and reduce are called terminals.
+
+    Method Reference
+    --------------------------------------------------------------------------------------------
+
+        Consumer c = System.out::println;
+        c.accept("Hello All"); // System.out.println("Hello All")
+
