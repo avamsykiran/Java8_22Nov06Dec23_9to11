@@ -1197,3 +1197,89 @@ Java 8
         Consumer c = System.out::println;
         c.accept("Hello All"); // System.out.println("Hello All")
 
+    Input/Output Streams
+    --------------------------------------------------------------------------------------------
+
+        java.io
+
+                InputStream                         System.in                       java.util.Scanner
+                    ↑
+                    |←FileInputStream
+                    |←DataInputStream
+                    |←ObjectInputStream
+                    
+                OutputStream
+                    ↑
+                    |←FileOutputStream
+                    |←DataOutputStream
+                    |←PrintStream                   System.out, System.err
+                    |←ObjectOutputStream
+
+                Reader
+                    ↑
+                    |←FileReader
+                    |←InputStreamReader
+                    |←BufferedStreamReader
+                
+                Writer
+                    ↑
+                    |←FileWriter
+                    |←PrintWriter
+
+                File
+                FileNotFoundException
+                IOException
+
+        java.nio
+                Path
+                Paths
+                Files
+
+        Serialization           of writing an Java Object into a stream     ObjectOutputStream
+        DeSerialization         of reading an Java Object from a stream     ObjectInputStream
+
+        Seraializable       is a marker interface that marks a class as permitted for serialization.
+
+                    
+    Java DataBase Connectivity
+    --------------------------------------------------------------------------------------------
+
+        Oracle          <-> Thin Driver <->
+        MySQl           <-> ConnectorJ Driver <-> JDBC-API <--> [ DAO <-model-> SERVICE <-model-> UI ] <--> End User
+        Ms SQL Server   <-> Jet Driver <->
+
+        A Jdbc is a database connectivity specification (only declarations [interfaces and abstract class] ).
+        Each Database driver is an implementation of this specification
+
+            Oracle      jdbc:oracle:thin:@serverName:5314/OracleServiceName
+            MySQL       jdbc:mysql://serNameOrIP:3306/databaseName
+
+        java.sql
+
+            Connection con = DriverManager.getConnection(dbConnectionString,userId,password);
+                        ↑
+                ---------------------------------------------------------------------------------
+                ↑                                       ↑                                       ↑ 
+            Statement st = con.createStatement();       |           CallableStatement cst = con.prepareCall(call);
+                                        PreparedStatement pst = con.prepareStatement(qry);
+
+            Statement and PreparedStatement are used to execute DDL/DML/DRL queries.
+            CallableStatement is used to execute a database procedure or function.
+
+            Statement                       used to handle dynamic queries.
+                int executeUpdate(qry);         used to execute insert/update/delete qrys and return affectedRowCount
+                boolean execute(qry);           used to execute create/drop/alter qrys and returns isDoneOrNot
+                ResultSet executeQuery(qry);    used to execute Select qry and the data is returns as a ResutlSet Obj
+
+            PreparedStatement               used to handle static queries and supports paramaters.
+                int executeUpdate();         used to execute insert/update/delete qrys and return affectedRowCount
+                boolean execute();           used to execute create/drop/alter qrys and returns isDoneOrNot
+                ResultSet executeQuery();    used to execute Select qry and the data is returns as a ResutlSet Obj
+                void set<Type>(paramIndex,paramValue)
+
+            ResultSet
+                is an interface that hold the data returned by the Select qry.
+
+                    boolean next()
+                    <Type> get<Type>(colIndex)
+                    <Type> get<Type>(colLabel)

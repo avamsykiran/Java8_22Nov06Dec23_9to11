@@ -1,10 +1,12 @@
 package com.cts.jsld.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Student implements Comparable<Student> {
-
+public class Student implements Comparable<Student>,Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private int admNo;
 	private String fullName;
 	private double fee;

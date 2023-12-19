@@ -2,11 +2,12 @@ package com.cts.jsld.ui;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.cts.jsld.model.Student;
-import com.cts.jsld.service.StudentComparatorBasedOnName;
 
 public class StreamsAPIDemoApp {
 
@@ -35,6 +36,18 @@ public class StreamsAPIDemoApp {
 			.map(Student::getFullName)
 			.forEach(System.out::println);
 		System.out.println("------------------------------------------------------------------");
+		
+		Optional<Student> maxFeeStudentDetails = students.stream().reduce( (s1,s2) -> s1.getFee()>=s2.getFee()?s1:s2 );
+		System.out.println(maxFeeStudentDetails.isPresent()?maxFeeStudentDetails.get():null);
+		System.out.println("------------------------------------------------------------------");
+
+		Set<String> names = students.stream()
+			.filter( s -> s.getFee()<=15000)
+			.map(Student::getFullName)
+			.collect(Collectors.toSet());
+		System.out.println(names);
+		System.out.println("------------------------------------------------------------------");
+	
 	}
 
 }
