@@ -1283,3 +1283,28 @@ Java 8
                     boolean next()
                     <Type> get<Type>(colIndex)
                     <Type> get<Type>(colLabel)
+
+    Build Tool - Maven
+    --------------------------------------------------------------------------------------------
+
+        Build Tools are resposnible to automate project lifecycle stages like
+            1. downloading and upgrading dependencies (3rd party jar files)
+            2. building and packaging the application
+            3. deploying the application
+            ...etc.,
+
+        Maven and Gradle two majorly used build tools for java as on date.
+
+        Maven identifies each project (either a library or an application) with two ids - artifactId and groupId.
+
+        Generally group id represents the organization developing and distributing a project.
+        And artifact id represents the project itself.
+
+        For Example, if a team from Cognizant is developing and HR Applciation,
+            the group id can be com.cts
+            and artifact id can be hrapp.
+
+        A maven uses POM.xml file to describe the details of project like project name, group id,
+        artifact id, version, author, list of dependencies, life cycle stages ...etc.,
+
+        POM - Project Object Model.
